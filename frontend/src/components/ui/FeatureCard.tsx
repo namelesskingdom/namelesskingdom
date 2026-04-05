@@ -8,9 +8,9 @@ export function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="group relative p-8 rounded border border-gold-800/20 bg-[#111]/80 backdrop-blur-sm hover:border-gold-600/40 transition-all duration-300">
-      <div className="text-4xl mb-5">{icon}</div>
-      <h3 className="font-display text-lg font-semibold text-gold-400 mb-3 uppercase tracking-wider">
+    <div className="group relative flex flex-col gap-3 rounded border border-gold-800/20 bg-[#111]/80 p-8 backdrop-blur-sm transition-all duration-300 hover:border-gold-600/40">
+      <div className="text-4xl">{icon}</div>
+      <h3 className="font-display text-lg font-semibold text-gold-400 uppercase tracking-wider">
         {title}
       </h3>
       <p className="text-neutral-400 text-sm leading-relaxed">{description}</p>

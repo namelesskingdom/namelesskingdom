@@ -58,9 +58,9 @@ export function MemberCard({ member }: { member: Member }) {
           {initials}
         </div>
       )}
-      <div className="text-center">
+      <div className="flex flex-col gap-0.5 text-center">
         <p className="font-display text-gold-300 font-semibold text-sm">{member.display_name}</p>
-        <p className="text-[11px] text-neutral-500 uppercase tracking-wider mt-0.5">{member.role}</p>
+        <p className="text-[11px] text-neutral-500 uppercase tracking-wider">{member.role}</p>
       </div>
       {member.character_class && (
         <span

@@ -30,9 +30,9 @@ export function AuthModal({ onClose }: { onClose: () => void }) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" onClick={onClose}>
       <div
-        className="bg-[#111] border border-gold-800/30 rounded w-full max-w-md p-8 mx-4 relative"
+        className="relative flex w-full max-w-md flex-col gap-6 rounded border border-gold-800/30 bg-[#111] p-8"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -45,19 +45,19 @@ export function AuthModal({ onClose }: { onClose: () => void }) {
         </button>
 
         {/* Title */}
-        <h2 className="font-display text-2xl font-bold text-gold-400 tracking-wider uppercase mb-6 text-center">
+        <h2 className="text-center font-display text-2xl font-bold tracking-wider text-gold-400 uppercase">
           {mode === "login" ? "Sign In" : "Create Account"}
         </h2>
 
         {error && (
-          <div className="mb-4 text-sm text-red-400 bg-red-900/20 border border-red-800/30 rounded px-4 py-2 text-center">
+          <div className="rounded border border-red-800/30 bg-red-900/20 px-4 py-2 text-center text-sm text-red-400">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <div>
-            <label className="block text-xs text-neutral-400 uppercase tracking-wider mb-1.5">Username</label>
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs text-neutral-400 uppercase tracking-wider">Username</label>
             <input
               type="text"
               value={username}
@@ -72,8 +72,8 @@ export function AuthModal({ onClose }: { onClose: () => void }) {
 
           {mode === "register" && (
             <>
-              <div>
-                <label className="block text-xs text-neutral-400 uppercase tracking-wider mb-1.5">Invite Code</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs text-neutral-400 uppercase tracking-wider">Invite Code</label>
                 <input
                   type="text"
                   value={inviteCode}
@@ -83,8 +83,8 @@ export function AuthModal({ onClose }: { onClose: () => void }) {
                   placeholder="Enter invite code"
                 />
               </div>
-              <div>
-                <label className="block text-xs text-neutral-400 uppercase tracking-wider mb-1.5">Display Name</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs text-neutral-400 uppercase tracking-wider">Display Name</label>
                 <input
                   type="text"
                   value={displayName}
@@ -97,8 +97,8 @@ export function AuthModal({ onClose }: { onClose: () => void }) {
             </>
           )}
 
-          <div>
-            <label className="block text-xs text-neutral-400 uppercase tracking-wider mb-1.5">Password</label>
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs text-neutral-400 uppercase tracking-wider">Password</label>
             <input
               type="password"
               value={password}
@@ -113,13 +113,13 @@ export function AuthModal({ onClose }: { onClose: () => void }) {
           <button
             type="submit"
             disabled={submitting}
-            className="mt-2 w-full cursor-pointer py-3 border-2 border-gold-500 text-gold-400 font-display font-semibold text-sm tracking-widest uppercase hover:bg-gold-500 hover:text-black transition-all duration-300 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full cursor-pointer rounded-sm border-2 border-gold-500 py-3 font-display text-sm font-semibold tracking-widest text-gold-400 uppercase transition-all duration-300 hover:bg-gold-500 hover:text-black disabled:cursor-not-allowed disabled:opacity-50"
           >
             {submitting ? "..." : mode === "login" ? "Sign In" : "Create Account"}
           </button>
         </form>
 
-        <div className="mt-6 text-center">
+        <div className="text-center">
           <button
             onClick={() => { setMode(mode === "login" ? "register" : "login"); setError(""); }}
             className="cursor-pointer text-xs text-neutral-500 hover:text-gold-400 transition-colors"

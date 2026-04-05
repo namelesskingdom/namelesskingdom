@@ -3,13 +3,13 @@ import { FeatureCard } from "../ui/FeatureCard";
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="relative py-28 bg-[#0a0a0a]">
+    <section id="features" className="relative flex justify-center bg-[#0a0a0a] px-6 py-28">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(196,154,26,0.02)_0%,transparent_70%)]" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+      <div className="relative z-10 flex w-full max-w-6xl flex-col gap-6">
         <SectionHeading>Our Creed</SectionHeading>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-14">
+        <div className="grid gap-6 pt-8 md:grid-cols-3 md:pt-10">
           <FeatureCard
             icon="⚔️"
             title="Strength"
@@ -27,7 +27,7 @@ export function FeaturesSection() {
           />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-6">
+        <div className="grid gap-6 md:grid-cols-3">
           <FeatureCard
             icon="🏰"
             title="Node Wars"

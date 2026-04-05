@@ -91,9 +91,9 @@ export function ProfileModal({ onClose }: { onClose: () => void }) {
   if (!member) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" onClick={onClose}>
       <div
-        className="bg-[#111] border border-gold-800/30 rounded w-full max-w-lg p-8 mx-4 relative max-h-[90vh] overflow-y-auto"
+        className="relative flex max-h-[90vh] w-full max-w-lg flex-col gap-6 overflow-y-auto rounded border border-gold-800/30 bg-[#111] p-8"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -104,17 +104,17 @@ export function ProfileModal({ onClose }: { onClose: () => void }) {
           &times;
         </button>
 
-        <h2 className="font-display text-2xl font-bold text-gold-400 tracking-wider uppercase mb-6 text-center">
+        <h2 className="text-center font-display text-2xl font-bold tracking-wider text-gold-400 uppercase">
           Edit Profile
         </h2>
 
         {error && (
-          <div className="mb-4 text-sm text-red-400 bg-red-900/20 border border-red-800/30 rounded px-4 py-2 text-center">
+          <div className="rounded border border-red-800/30 bg-red-900/20 px-4 py-2 text-center text-sm text-red-400">
             {error}
           </div>
         )}
         {saved && (
-          <div className="mb-4 text-sm text-green-400 bg-green-900/20 border border-green-800/30 rounded px-4 py-2 text-center">
+          <div className="rounded border border-green-800/30 bg-green-900/20 px-4 py-2 text-center text-sm text-green-400">
             Profile updated!
           </div>
         )}
@@ -180,19 +180,19 @@ export function ProfileModal({ onClose }: { onClose: () => void }) {
           <button
             type="submit"
             disabled={submitting}
-            className="mt-2 w-full cursor-pointer py-3 border-2 border-gold-500 text-gold-400 font-display font-semibold text-sm tracking-widest uppercase hover:bg-gold-500 hover:text-black transition-all duration-300 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full cursor-pointer rounded-sm border-2 border-gold-500 py-3 font-display text-sm font-semibold tracking-widest text-gold-400 uppercase transition-all duration-300 hover:bg-gold-500 hover:text-black disabled:cursor-not-allowed disabled:opacity-50"
           >
             {submitting ? "Saving..." : "Save Profile"}
           </button>
         </form>
 
-        <div className="mt-8 border-t border-gold-900/20 pt-6">
+        <div className="flex flex-col gap-4 border-t border-gold-900/20 pt-6">
           <div className="flex items-center justify-between gap-4">
-            <div>
+            <div className="flex flex-col gap-1">
               <h3 className="font-display text-lg font-semibold text-gold-400 uppercase tracking-wider">
                 Invite Codes
               </h3>
-              <p className="text-xs text-neutral-500 mt-1">
+              <p className="text-xs text-neutral-500">
                 Only existing members can generate codes for new registrations.
               </p>
             </div>
@@ -206,7 +206,7 @@ export function ProfileModal({ onClose }: { onClose: () => void }) {
             </button>
           </div>
 
-          <div className="mt-4 space-y-3">
+          <div className="flex flex-col gap-3">
             {invites.length === 0 ? (
               <div className="rounded border border-gold-900/20 bg-[#0a0a0a] px-4 py-3 text-sm text-neutral-500">
                 No invite codes yet.
@@ -217,9 +217,9 @@ export function ProfileModal({ onClose }: { onClose: () => void }) {
                   key={invite.id}
                   className="flex items-center justify-between gap-3 rounded border border-gold-900/20 bg-[#0a0a0a] px-4 py-3"
                 >
-                  <div>
+                  <div className="flex flex-col gap-1">
                     <p className="font-mono text-sm tracking-[0.25em] text-gold-300">{invite.code}</p>
-                    <p className="mt-1 text-[11px] uppercase tracking-wider text-neutral-500">
+                    <p className="text-[11px] uppercase tracking-wider text-neutral-500">
                       {invite.used_by ? "Used" : "Unused"}
                     </p>
                   </div>
@@ -242,8 +242,8 @@ export function ProfileModal({ onClose }: { onClose: () => void }) {
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div>
-      <label className="block text-xs text-neutral-400 uppercase tracking-wider mb-1.5">
+    <div className="flex flex-col gap-1.5">
+      <label className="text-xs text-neutral-400 uppercase tracking-wider">
         {label}
       </label>
       {children}

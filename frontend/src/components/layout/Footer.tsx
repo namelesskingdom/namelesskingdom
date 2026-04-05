@@ -1,13 +1,13 @@
 export function Footer() {
   return (
-    <footer className="border-t border-gold-900/20 bg-[#080808]">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
+    <footer className="flex justify-center border-t border-gold-900/20 bg-[#080808] px-6 py-12">
+      <div className="flex w-full max-w-7xl flex-col gap-8">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+          <div className="flex flex-col gap-1 text-center md:text-left">
             <span className="font-display text-gold-500/60 text-sm tracking-[0.3em] uppercase font-semibold">
               NamelessKingdom
             </span>
-            <p className="text-neutral-600 text-xs mt-1">
+            <p className="text-neutral-600 text-xs">
               A Black Desert Online guild community
             </p>
           </div>
@@ -17,7 +17,7 @@ export function Footer() {
             <a href="#join" className="hover:text-gold-400 transition-colors">Join</a>
           </div>
         </div>
-        <div className="mt-8 pt-6 border-t border-neutral-800/50 text-center">
+        <div className="border-t border-neutral-800/50 pt-6 text-center">
           <p className="text-neutral-700 text-[10px] uppercase tracking-wider">
             Black Desert Online &copy; Pearl Abyss Corp. We are a fan community — not affiliated with Pearl Abyss.
           </p>
