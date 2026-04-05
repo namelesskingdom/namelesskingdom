@@ -11,11 +11,12 @@ export function Navbar() {
   return (
     <>
       <nav className="relative z-20 border-b border-gold-900/20 bg-[#0a0a0a]/90 backdrop-blur-md">
-        <div className="flex items-center justify-between px-6 md:px-10 py-4 max-w-7xl mx-auto">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 md:px-10">
           {/* Brand */}
-          <a href="#" className="flex items-center gap-3">
-            <span className="font-display text-gold-400 text-xl font-bold tracking-[0.3em] uppercase">
-              NamelessKingdom
+          <a href="#" className="min-w-0 flex items-center gap-3">
+            <span className="font-display text-sm font-bold tracking-[0.16em] text-gold-400 uppercase sm:text-base sm:tracking-[0.24em] md:text-xl md:tracking-[0.3em]">
+              <span className="sm:hidden">NK</span>
+              <span className="hidden sm:inline">NamelessKingdom</span>
             </span>
           </a>
 
@@ -28,21 +29,21 @@ export function Navbar() {
           </div>
 
           {/* Auth */}
-          <div className="flex items-center gap-4">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-4">
             {member ? (
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <button
                   onClick={() => setProfileOpen(true)}
-                  className="flex items-center gap-2 text-sm text-neutral-300 hover:text-gold-400 transition-colors"
+                  className="flex min-w-0 items-center gap-2 text-sm text-neutral-300 transition-colors hover:text-gold-400"
                 >
                   <span className="w-7 h-7 rounded-full bg-gold-800/30 border border-gold-700/30 flex items-center justify-center font-display text-gold-400 text-xs font-bold">
                     {member.display_name[0].toUpperCase()}
                   </span>
-                  <span className="hidden md:inline">{member.display_name}</span>
+                  <span className="hidden max-w-32 truncate md:inline">{member.display_name}</span>
                 </button>
                 <button
                   onClick={logout}
-                  className="text-xs text-neutral-500 hover:text-neutral-300 transition-colors uppercase tracking-wider"
+                  className="text-[11px] text-neutral-500 uppercase tracking-wider transition-colors hover:text-neutral-300 sm:text-xs"
                 >
                   Logout
                 </button>
@@ -50,7 +51,7 @@ export function Navbar() {
             ) : (
               <button
                 onClick={() => setAuthOpen(true)}
-                className="px-5 py-2 text-xs font-display font-semibold tracking-widest uppercase border border-gold-600/50 text-gold-400 hover:bg-gold-600/10 transition-colors rounded-sm cursor-pointer"
+                className="cursor-pointer rounded-sm border border-gold-600/50 px-3 py-2 font-display text-[11px] font-semibold tracking-[0.18em] text-gold-400 uppercase transition-colors hover:bg-gold-600/10 sm:px-5 sm:text-xs sm:tracking-widest"
               >
                 Login
               </button>

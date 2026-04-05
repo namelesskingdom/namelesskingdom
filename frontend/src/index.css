@@ -19,6 +19,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
@@ -26,6 +27,12 @@
     background-color: #0a0a0a;
     color: #e5e5e5;
     overflow-x: hidden;
+  }
+
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
   }
 
   ::selection {
